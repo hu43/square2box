@@ -1,0 +1,20 @@
+[Unit]
+Description=square2box 24/7 pick-place loop
+After=network.target
+
+[Service]
+Type=simple
+User=zhoulin
+Group=ai
+WorkingDirectory=/home/zhoulin/hu/square2box
+Environment=PYTHONUNBUFFERED=1
+ExecStart=/home/zhoulin/miniconda3/envs/hupy3.12/bin/python /home/zhoulin/hu/square2box/square2box_loop.py run --cycles 0
+Restart=always
+RestartSec=5
+KillSignal=SIGINT
+TimeoutStopSec=30
+StandardOutput=append:/home/zhoulin/hu/square2box/logs/systemd.out
+StandardError=append:/home/zhoulin/hu/square2box/logs/systemd.err
+
+[Install]
+WantedBy=multi-user.target

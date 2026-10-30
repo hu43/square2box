@@ -1,0 +1,5 @@
+numpy
+opencv-python
+ultralytics>=8.3.0
+# lerobot: install from your fork/upstream; this project expects the XLerobot
+# robot class (left arm bus) and is not compatible with every lerobot release.
