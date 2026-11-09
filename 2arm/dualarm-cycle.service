@@ -1,0 +1,26 @@
+[Unit]
+Description=Dual-arm YOLO visual-servo cube cycle (24/7)
+After=network.target
+# 无人值守：重启次数不设上限，失败后每 5 秒拉起
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+User=zhoulin
+Group=ai
+WorkingDirectory=/home/zhoulin/hu/square2box/2arm
+Environment=PYTHONUNBUFFERED=1
+Environment=PYTHONPATH=/home/zhoulin/hu/square2box/2arm
+ExecStart=/home/zhoulin/miniconda3/envs/hupy3.12/bin/python /home/zhoulin/hu/square2box/2arm/dualarm_cycle.py run
+Restart=always
+RestartSec=5
+# SIGINT 让程序走优雅停机：先把夹着的方块放回盒子，再开爪下电
+KillSignal=SIGINT
+TimeoutStopSec=30
+StandardOutput=null
+StandardError=journal
+# 防止单个进程吃满 CPU/内存（YOLO 在 GPU 上跑，CPU 只做控制）
+Nice=0
+
+[Install]
+WantedBy=multi-user.target

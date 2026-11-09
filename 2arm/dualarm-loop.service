@@ -1,0 +1,24 @@
+[Unit]
+Description=2arm 双臂方块循环夹放 24/7
+After=network.target
+
+[Service]
+Type=simple
+User=zhoulin
+Group=ai
+WorkingDirectory=/home/zhoulin/hu/square2box/2arm
+Environment=PYTHONUNBUFFERED=1
+Environment=PYTHONPATH=/home/zhoulin/hu/square2box/2arm
+ExecStart=/home/zhoulin/miniconda3/envs/hupy3.12/bin/python /home/zhoulin/hu/square2box/2arm/dualarm_loop.py run --cycles 0
+Restart=always
+RestartSec=5
+KillSignal=SIGINT
+TimeoutStopSec=30
+# 程序自己的日志已经是 12MB x 6 轮转（logs/s2b2.log）。
+# 这里再往文件里追加会 24 小时无限增长，所以 stdout 直接丢弃，
+# stderr 交给 journald（journald 自带容量上限）。
+StandardOutput=null
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target

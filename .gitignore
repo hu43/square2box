@@ -21,3 +21,6 @@ venv/
 
 config.backup.json
 config.distilled.json
+
+# ZCode agent scratch
+.zcode/

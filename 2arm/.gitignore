@@ -1,0 +1,8 @@
+__pycache__/
+logs/
+calib/
+snapshots/
+*.pyc
+config.json.tmp
+servo_state.json
+servo_state.json.tmp
