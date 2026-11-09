@@ -2,7 +2,23 @@
 
 SO-101 / LeRobot 左臂视觉抓取与循环放置。
 
-## 文件
+## 双臂四步循环（`2arm/`）
+
+`2arm/` 是双臂版本：左臂桌面→盒内、右臂盒内→桌面、右臂桌面→盒内、左臂盒内→桌面，
+一轮回到起点，可无人值守循环往复。
+
+```bash
+conda activate hupy3.12
+cd 2arm
+python calibrate2arm.py --check      # 先体检
+python four_step_cycle.py --minutes 5
+```
+
+详细说明见 [2arm/README.md](2arm/README.md)。
+
+## 单臂版本（仓库根目录）
+
+### 文件
 
 - `square2box.py` — 单次抓取/放置 + 手动标定（HSV + 视觉伺服）
 - `square2box_loop.py` — 24/7 循环：桌面抓取 → 放入盆内 → 盆内抓出 → 放回桌面；YOLOE + HSV、平滑运动、相机/总线看门狗、温度保护
@@ -11,7 +27,7 @@ SO-101 / LeRobot 左臂视觉抓取与循环放置。
 - `square2box-loop.service` — systemd 常驻配置
 - `config.json` — 位姿/增益/夹爪标定参数
 
-## 环境
+### 环境
 
 ```bash
 conda activate hupy3.12
@@ -26,7 +42,7 @@ yoloe-11l-seg.pt
 mobileclip_blt.ts
 ```
 
-## 快速开始
+### 快速开始
 
 ```bash
 python square2box_loop.py self-test
@@ -37,7 +53,7 @@ python square2box_loop.py run --cycles 0
 
 详细标定、参数和常见问题见 [README_LOOP.md](README_LOOP.md)。
 
-## 设备
+### 设备
 
 脚本优先使用 `/dev/left_arm`、`/dev/right_arm`、`/dev/left_wrist_cam`；符号链接缺失时自动回退到：
 
