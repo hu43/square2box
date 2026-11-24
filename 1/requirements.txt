@@ -1,0 +1,4 @@
+# 运动回放只需要 numpy。
+# LeRobot（Feetech 电机库）需本机可用；armdriver.py 会优先 import 已安装的
+# lerobot，失败时回退到 /home/zhoulin/hu/lerobot/src。
+numpy

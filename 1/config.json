@@ -1,0 +1,419 @@
+{
+  "_说明": [
+    "本文件只需保留你要改的字段；没写的字段自动用 armcore.py 里的默认值。",
+    "poses 里的 10 个点必须先用 calibrate2arm.py 标定，null 表示未标定。",
+    "标定脚本会自动写入位姿、夹爪开合、视觉增益和 box_roi，通常不用手改。"
+  ],
+  "devices": {
+    "left_port": "auto",
+    "right_port": "auto",
+    "left_camera_usb": "5-2",
+    "right_camera_usb": "5-1",
+    "left_camera": "/dev/video2",
+    "right_camera": "/dev/video0",
+    "left_camera_fallbacks": [
+      "/dev/left_wrist_cam",
+      "/dev/video2",
+      "/dev/video3"
+    ],
+    "right_camera_fallbacks": [
+      "/dev/right_wrist_cam",
+      "/dev/video0",
+      "/dev/video1"
+    ],
+    "left_calibration_json": "/home/zhoulin/.cache/huggingface/lerobot/calibration/teleoperators/so_leader/zihao_leader_arm.json",
+    "right_calibration_json": "/home/zhoulin/.cache/huggingface/lerobot/calibration/robots/so_follower/zihao_follower_arm.json",
+    "camera_width": 640,
+    "camera_height": 480,
+    "camera_fps": 30
+  },
+  "detector": {
+    "yolo_model": "yoloe-11l-seg.pt",
+    "yolo_prompts": [
+      "green cube",
+      "green block",
+      "cube",
+      "green object"
+    ],
+    "yolo_target_terms": [
+      "cube",
+      "block",
+      "object"
+    ],
+    "yolo_conf": 0.08,
+    "yolo_device": "cuda:0",
+    "yolo_imgsz": 640,
+    "yolo_interval_s": 0.055,
+    "yolo_warmup": true,
+    "hsv_low1": [
+      45,
+      70,
+      55
+    ],
+    "hsv_high1": [
+      95,
+      255,
+      255
+    ],
+    "hsv_low2": [
+      45,
+      70,
+      55
+    ],
+    "hsv_high2": [
+      95,
+      255,
+      255
+    ],
+    "min_area": 300,
+    "min_area_box": 800,
+    "max_area_frac": 0.35,
+    "min_color_frac": 0.06,
+    "use_yolo": true
+  },
+  "motion": {
+    "control_hz": 100.0,
+    "read_hz": 12.0,
+    "vmax": {
+      "shoulder_pan": 55.0,
+      "shoulder_lift": 55.0,
+      "elbow_flex": 60.0,
+      "wrist_flex": 75.0,
+      "wrist_roll": 70.0
+    },
+    "cruise_scale": 1.0,
+    "precision_scale": 0.32,
+    "ease_frac": 0.16,
+    "settle_s": 0.06,
+    "arrive_tol": 3.0,
+    "arrive_timeout_s": 0.8,
+    "gripper_open_settle_s": 0.28,
+    "release_dwell_s": 0.6,
+    "gripper_close_settle_s": 0.34,
+    "max_overshoot": 5.0,
+    "overlap_idle_arm": true
+  },
+  "grasp": {
+    "pos_margin": 0.8,
+    "load_min": 25.0,
+    "open_hold_margin": 8.0,
+    "retries": 3,
+    "box_visual_tries": 3,
+    "box_retry_deepen": 1.2,
+    "retry_deepen": 0.8,
+    "align_max_iters": 8,
+    "align_tol_px": 10.0,
+    "align_step_deg": 6.0,
+    "align_gain_fallback": [
+      [
+        -4.0,
+        0.0
+      ],
+      [
+        0.0,
+        -22.0
+      ]
+    ],
+    "verify_in_hand_px": 70.0,
+    "verify_dst_tol_px": 60.0,
+    "require_vision_verify": false,
+    "align_roll": false,
+    "align_roll_max_deg": 25.0,
+    "lift_speed": 0.3,
+    "grip_hold_s": 0.5,
+    "load_settle_s": 0.25,
+    "table_release_lift": 0.0,
+    "box_drop_extra_lift": 0.0
+  },
+  "safety": {
+    "temp_warn_c": 62.0,
+    "temp_slow_c": 68.0,
+    "temp_stop_c": 74.0,
+    "temp_wait_s": 40.0,
+    "hard_joint_limit": 100.0,
+    "bus_retries": 2,
+    "reconnect_after_errors": 6,
+    "max_consecutive_failures": 6,
+    "cycle_timeout_s": 180.0,
+    "phase_timeout_s": 60.0,
+    "box_pick_timeout_s": 75.0,
+    "recover_pause_s": 1.2,
+    "stall_restart_s": 300.0,
+    "startup_temp_wait_s": 30.0
+  },
+  "loop": {
+    "cycle_pause_s": 0.1,
+    "mode": "in_box",
+    "save_every_n_frames": 0,
+    "snapshot_dir": "snapshots",
+    "snapshot_every_n_cycles": 10
+  },
+  "arms": {
+    "left": {
+      "poses": {
+        "measure": [
+          -13.1148,
+          -38.9365,
+          8.2993,
+          74.3615,
+          -1.6361
+        ],
+        "home": [
+          -39.8907,
+          -38.765,
+          8.5714,
+          75.1473,
+          -1.8315
+        ],
+        "carry": [
+          1.3661,
+          2.7444,
+          -19.7279,
+          87.6228,
+          -1.6361
+        ],
+        "table_approach": [
+          -25.9563,
+          12.8645,
+          -19.6372,
+          80.6483,
+          -1.9292
+        ],
+        "table_hover": [
+          -26.776,
+          38.3362,
+          -21.4512,
+          57.7603,
+          -1.7827
+        ],
+        "table_pick": [
+          -26.776,
+          49.8285,
+          -21.3605,
+          50.7859,
+          -1.685
+        ],
+        "box_approach": [
+          -7.6503,
+          2.8302,
+          -21.1791,
+          86.3458,
+          -1.7827
+        ],
+        "box_hover": [
+          35.1093,
+          31.4751,
+          -28.8889,
+          54.0275,
+          -1.6361
+        ],
+        "box_pick": [
+          35.7923,
+          55.3173,
+          -29.3424,
+          39.1945,
+          -1.4896
+        ],
+        "box_drop": [
+          35.929,
+          55.5746,
+          -29.3424,
+          38.3104,
+          -1.5873
+        ],
+        "place_right": [
+          -7.377,
+          49.8285,
+          -22.7211,
+          44.499,
+          -3.5409
+        ]
+      },
+      "gripper_open": 43.327,
+      "gripper_closed": 3.09,
+      "table_pick_height_offset": 2.0,
+      "box_pick_height_offset": 1.0,
+      "gains": {
+        "hover_px_per_deg": [
+          [
+            -2.635,
+            5.422
+          ],
+          [
+            0.253,
+            -3.027
+          ]
+        ],
+        "roll_deg_per_deg": null,
+        "align_px": [
+          355.11,
+          318.27
+        ],
+        "held_px": null,
+        "box_roi": [
+          110,
+          169,
+          450,
+          469
+        ],
+        "calib_fingerprint": "left_arm_elbow_flex:3:874:3067:214|left_arm_gripper:6:1448:2946:-53|left_arm_shoulder_lift:2:929:3238:971|left_arm_shoulder_pan:1:1630:2517:-88|left_arm_wrist_flex:4:16:2140:133|left_arm_wrist_roll:5:0:4095:137",
+        "drop_px": null,
+        "drop_offset": [
+          0.0,
+          0.0
+        ],
+        "box_center_px": [
+          315.0,
+          215.0
+        ],
+        "box_pan_px_per_deg": -4.169
+      },
+      "pose_calib": {
+        "measure": "58d07f09b2458d88",
+        "home": "58d07f09b2458d88",
+        "carry": "58d07f09b2458d88",
+        "table_approach": "58d07f09b2458d88",
+        "table_hover": "58d07f09b2458d88",
+        "table_pick": "58d07f09b2458d88",
+        "box_approach": "58d07f09b2458d88",
+        "box_hover": "58d07f09b2458d88",
+        "box_pick": "58d07f09b2458d88",
+        "box_drop": "58d07f09b2458d88",
+        "place_right": "58d07f09b2458d88"
+      }
+    },
+    "right": {
+      "poses": {
+        "measure": [
+          -17.0391,
+          -24.6328,
+          -1.0517,
+          74.3514,
+          0.9524
+        ],
+        "home": [
+          6.5642,
+          -26.4792,
+          2.0158,
+          57.8071,
+          0.9524
+        ],
+        "carry": [
+          -31.8436,
+          -12.2115,
+          0.8764,
+          81.2041,
+          0.9524
+        ],
+        "table_approach": [
+          3.352,
+          23.206,
+          0.2629,
+          53.4019,
+          0.9524
+        ],
+        "table_hover": [
+          0.9777,
+          32.606,
+          -10.1665,
+          62.604,
+          0.9524
+        ],
+        "table_pick": [
+          8.1006,
+          49.2237,
+          -10.2542,
+          46.3534,
+          1.0012
+        ],
+        "box_approach": [
+          -26.676,
+          -5.3294,
+          -4.3821,
+          70.0441,
+          0.8547
+        ],
+        "box_hover": [
+          -54.1899,
+          40.8309,
+          -29.6231,
+          69.9462,
+          0.8059
+        ],
+        "box_pick": [
+          -54.3296,
+          64.8342,
+          -47.4145,
+          69.2609,
+          1.0012
+        ],
+        "box_drop": [
+          -54.3296,
+          65.086,
+          -47.2393,
+          69.2609,
+          0.9524
+        ],
+        "place_left": [
+          -12.0112,
+          53.3361,
+          -20.9465,
+          46.745,
+          0.9035
+        ]
+      },
+      "gripper_open": 40.353,
+      "gripper_closed": 3.466,
+      "table_pick_height_offset": 2.0,
+      "box_pick_height_offset": 2.0,
+      "gains": {
+        "hover_px_per_deg": [
+          [
+            -3.051,
+            -2.065
+          ],
+          [
+            -0.625,
+            -4.781
+          ]
+        ],
+        "roll_deg_per_deg": null,
+        "align_px": [
+          368.44,
+          255.96
+        ],
+        "held_px": null,
+        "box_roi": [
+          195,
+          164,
+          535,
+          464
+        ],
+        "calib_fingerprint": "right_arm_elbow_flex:3:1004:3285:825|right_arm_gripper:6:1411:2871:-274|right_arm_shoulder_lift:2:722:3098:1174|right_arm_shoulder_pan:1:1618:2635:-31|right_arm_wrist_flex:4:281:2047:674|right_arm_wrist_roll:5:0:4095:276",
+        "drop_px": null,
+        "drop_offset": [
+          0.0,
+          0.0
+        ],
+        "box_center_px": [
+          300.0,
+          200.0
+        ],
+        "box_pan_px_per_deg": -2.15
+      },
+      "pose_calib": {
+        "measure": "080031182102a64a",
+        "home": "080031182102a64a",
+        "carry": "080031182102a64a",
+        "table_approach": "080031182102a64a",
+        "table_hover": "080031182102a64a",
+        "table_pick": "080031182102a64a",
+        "box_approach": "080031182102a64a",
+        "box_hover": "080031182102a64a",
+        "box_pick": "080031182102a64a",
+        "box_drop": "080031182102a64a",
+        "place_left": "080031182102a64a"
+      }
+    }
+  }
+}

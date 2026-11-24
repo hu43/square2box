@@ -1,0 +1,169 @@
+{
+  "version": 1,
+  "name": "right_handoff_10",
+  "arm": "right",
+  "fingerprint": "080031182102a64a",
+  "created": "2026-11-24T10:40:09",
+  "steps": [
+    {
+      "index": 1,
+      "label": "home",
+      "q": [
+        6.5642,
+        -26.4792,
+        2.0158,
+        57.8071,
+        0.9524
+      ],
+      "gripper": 40.353,
+      "grip_after": null,
+      "dwell": 0.1,
+      "precision": false,
+      "source": "config"
+    },
+    {
+      "index": 2,
+      "label": "carry",
+      "q": [
+        -31.8436,
+        -12.2115,
+        0.8764,
+        81.2041,
+        0.9524
+      ],
+      "gripper": 40.353,
+      "grip_after": null,
+      "dwell": 0.1,
+      "precision": false,
+      "source": "config"
+    },
+    {
+      "index": 3,
+      "label": "table_approach",
+      "q": [
+        3.352,
+        23.206,
+        0.2629,
+        53.4019,
+        0.9524
+      ],
+      "gripper": 40.353,
+      "grip_after": null,
+      "dwell": 0.1,
+      "precision": false,
+      "source": "config"
+    },
+    {
+      "index": 4,
+      "label": "table_hover",
+      "q": [
+        0.9777,
+        32.606,
+        -10.1665,
+        62.604,
+        0.9524
+      ],
+      "gripper": 40.353,
+      "grip_after": null,
+      "dwell": 0.1,
+      "precision": false,
+      "source": "config"
+    },
+    {
+      "index": 5,
+      "label": "table_pick",
+      "q": [
+        8.1006,
+        49.2237,
+        -10.2542,
+        46.3534,
+        1.0012
+      ],
+      "gripper": 40.353,
+      "grip_after": 3.466,
+      "dwell": 0.1,
+      "precision": true,
+      "source": "config"
+    },
+    {
+      "index": 6,
+      "label": "table_hover",
+      "q": [
+        0.9777,
+        32.606,
+        -10.1665,
+        62.604,
+        0.9524
+      ],
+      "gripper": 3.466,
+      "grip_after": null,
+      "dwell": 0.1,
+      "precision": false,
+      "source": "config"
+    },
+    {
+      "index": 7,
+      "label": "carry",
+      "q": [
+        -31.8436,
+        -12.2115,
+        0.8764,
+        81.2041,
+        0.9524
+      ],
+      "gripper": 3.466,
+      "grip_after": null,
+      "dwell": 0.1,
+      "precision": false,
+      "source": "config"
+    },
+    {
+      "index": 8,
+      "label": "place_left",
+      "q": [
+        -12.0112,
+        53.3361,
+        -20.9465,
+        46.745,
+        0.9035
+      ],
+      "gripper": 3.466,
+      "grip_after": 40.353,
+      "dwell": 0.1,
+      "precision": false,
+      "source": "config"
+    },
+    {
+      "index": 9,
+      "label": "carry",
+      "q": [
+        -31.8436,
+        -12.2115,
+        0.8764,
+        81.2041,
+        0.9524
+      ],
+      "gripper": 40.353,
+      "grip_after": null,
+      "dwell": 0.1,
+      "precision": false,
+      "source": "config"
+    },
+    {
+      "index": 10,
+      "label": "home",
+      "q": [
+        6.5642,
+        -26.4792,
+        2.0158,
+        57.8071,
+        0.9524
+      ],
+      "gripper": 40.353,
+      "grip_after": null,
+      "dwell": 0.1,
+      "precision": false,
+      "source": "config"
+    }
+  ]
+}

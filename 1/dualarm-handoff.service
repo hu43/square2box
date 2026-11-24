@@ -1,0 +1,19 @@
+[Unit]
+Description=Dual-arm handoff pick-place loop (camera-free)
+StartLimitIntervalSec=0
+After=network.target
+
+[Service]
+Type=simple
+User=zhoulin
+Group=ai
+WorkingDirectory=/home/zhoulin/hu/square2box/1
+Environment=PYTHONUNBUFFERED=1
+ExecStart=/home/zhoulin/miniconda3/envs/hupy3.12/bin/python /home/zhoulin/hu/square2box/1/dualarm_handoff_loop.py
+Restart=always
+RestartSec=5
+KillSignal=SIGINT
+TimeoutStopSec=40
+
+[Install]
+WantedBy=multi-user.target

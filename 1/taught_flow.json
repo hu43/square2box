@@ -1,0 +1,230 @@
+{
+  "version": 1,
+  "updated": "2026-11-24T14:46:58",
+  "steps": [
+    {
+      "index": 1,
+      "arm": "left",
+      "name": "left_safe",
+      "label": "左臂安全位",
+      "pre": "open",
+      "post": null,
+      "q": [
+        -15.5738,
+        -98.6278,
+        98.9116,
+        7.7603,
+        -3.7851
+      ],
+      "pose_calib": "58d07f09b2458d88"
+    },
+    {
+      "index": 2,
+      "arm": "left",
+      "name": "left_pick_pre",
+      "label": "左臂夹方块前",
+      "pre": "open",
+      "post": null,
+      "q": [
+        54.3716,
+        74.9571,
+        -85.3968,
+        75.6385,
+        19.1697
+      ],
+      "pose_calib": "58d07f09b2458d88"
+    },
+    {
+      "index": 3,
+      "arm": "left",
+      "name": "left_pick",
+      "label": "左臂夹方块",
+      "pre": "open",
+      "post": "closed",
+      "q": [
+        56.0109,
+        85.2487,
+        -85.941,
+        62.4754,
+        19.1697
+      ],
+      "pose_calib": "58d07f09b2458d88"
+    },
+    {
+      "index": 4,
+      "arm": "left",
+      "name": "left_carry",
+      "label": "左臂夹起方块并在中转位",
+      "pre": "closed",
+      "post": null,
+      "q": [
+        52.7322,
+        -33.4477,
+        25.8957,
+        61.6896,
+        -1.2943
+      ],
+      "pose_calib": "58d07f09b2458d88"
+    },
+    {
+      "index": 5,
+      "arm": "left",
+      "name": "left_place_pre",
+      "label": "左臂放方块前",
+      "pre": "closed",
+      "post": null,
+      "q": [
+        12.8415,
+        22.813,
+        5.1247,
+        42.9273,
+        5.7387
+      ],
+      "pose_calib": "58d07f09b2458d88"
+    },
+    {
+      "index": 6,
+      "arm": "left",
+      "name": "left_place",
+      "label": "左臂放方块",
+      "pre": "closed",
+      "post": "open",
+      "q": [
+        13.1148,
+        37.6501,
+        -1.8594,
+        37.5246,
+        5.641
+      ],
+      "pose_calib": "58d07f09b2458d88"
+    },
+    {
+      "index": 7,
+      "arm": "left",
+      "name": "left_return",
+      "label": "左臂回安全位",
+      "pre": "open",
+      "post": null,
+      "q": [
+        -28.5519,
+        -71.1835,
+        47.9365,
+        59.9214,
+        -4.5665
+      ],
+      "pose_calib": "58d07f09b2458d88"
+    },
+    {
+      "index": 8,
+      "arm": "right",
+      "name": "right_safe",
+      "label": "右臂安全位",
+      "pre": "open",
+      "post": null,
+      "q": [
+        -70.6704,
+        -2.8116,
+        -41.1919,
+        45.4723,
+        -8.2295
+      ],
+      "pose_calib": "080031182102a64a"
+    },
+    {
+      "index": 9,
+      "arm": "right",
+      "name": "right_pick_pre",
+      "label": "右臂夹方块前",
+      "pre": "open",
+      "post": null,
+      "q": [
+        -77.2346,
+        85.3126,
+        -97.1078,
+        65.6388,
+        -8.3272
+      ],
+      "pose_calib": "080031182102a64a"
+    },
+    {
+      "index": 10,
+      "arm": "right",
+      "name": "right_pick",
+      "label": "右臂夹方块",
+      "pre": "open",
+      "post": "closed",
+      "q": [
+        -76.676,
+        97.65,
+        -97.0202,
+        46.745,
+        -8.3761
+      ],
+      "pose_calib": "080031182102a64a"
+    },
+    {
+      "index": 11,
+      "arm": "right",
+      "name": "right_carry",
+      "label": "右臂夹起方块并在中转位",
+      "pre": "closed",
+      "post": null,
+      "q": [
+        -49.3017,
+        17.499,
+        -27.2568,
+        96.8674,
+        -8.2784
+      ],
+      "pose_calib": "080031182102a64a"
+    },
+    {
+      "index": 12,
+      "arm": "right",
+      "name": "right_place_pre",
+      "label": "右臂放方块前",
+      "pre": "closed",
+      "post": null,
+      "q": [
+        -32.5419,
+        39.9916,
+        -36.8975,
+        80.8125,
+        -8.3272
+      ],
+      "pose_calib": "080031182102a64a"
+    },
+    {
+      "index": 13,
+      "arm": "right",
+      "name": "right_place",
+      "label": "右臂放方块",
+      "pre": "closed",
+      "post": "open",
+      "q": [
+        -30.1676,
+        60.3021,
+        -37.1604,
+        64.6598,
+        -8.3761
+      ],
+      "pose_calib": "080031182102a64a"
+    },
+    {
+      "index": 14,
+      "arm": "right",
+      "name": "right_return",
+      "label": "右臂回安全位",
+      "pre": "open",
+      "post": null,
+      "q": [
+        -17.8771,
+        -37.8095,
+        44.5223,
+        36.9555,
+        -8.4249
+      ],
+      "pose_calib": "080031182102a64a"
+    }
+  ]
+}
